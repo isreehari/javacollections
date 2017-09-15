@@ -3,16 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.isreehari.set;
+package com.isreehari.collection.set;
+
+import java.util.Comparator;
 import java.util.TreeSet;
+
 /**
  *
  * @author sinukoll
  */
-public class TreeSetDemo1 {
-    public static void main(String[] args){
+public class TreeSetMyComparatorDemo1 {
+    
+public static void main(String[] args){
         
-        TreeSet treeSet = new TreeSet();
+        TreeSet treeSet = new TreeSet(new MyComparator());
         
         treeSet.add("A");
         treeSet.add("a");
@@ -29,7 +33,13 @@ public class TreeSetDemo1 {
 }
 
 
-//class MyComparator implement Comparator{
-//
-//}
+class MyComparator implements Comparator{
+ 
+  public int compare(Object obj1, Object obj2){
+      
+       String newString1 = obj1.toString();
+       String newString2 = obj2.toString();
+       return -newString1.compareTo(newString2);
+    }
 
+}
